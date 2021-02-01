@@ -8,7 +8,7 @@ def run_prog(command):
     p = Popen([sys.executable, command], stdout=PIPE, stderr=PIPE)
     output, error = p.communicate()
     return output,error
-print(run_prog("your_file_name.py"))
+#print(run_prog("your_file_name.py"))
 
 def stackoverflow_req(err):
     response=requests.get("https://api.stackexchange.com/"+"/2.2/search?order=desc&sort=activity&tagged=python&intitle={}&site=stackoverflow".format(err))
@@ -35,7 +35,7 @@ if __name__=='__main__':
 
     if err_mess:
         err=err_mess.split(':')
-        err[1:]=[':'.join(err[1:])]
+        #ignore err[1:]=[':'.join(err[1:])]
         get_urls(stackoverflow_req(err[0]))
         get_urls(stackoverflow_req(err[1]))
         get_urls(stackoverflow_req(err_mess))
